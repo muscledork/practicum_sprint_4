@@ -8,7 +8,7 @@ import pandas as pd
 import streamlit as st
 import plotly_express as px
 import plotly.graph_objects as go
-from IPython.display import DisplayObject, display
+# from IPython.display import DisplayObject, display
 
 # In[16]:
 
@@ -19,7 +19,7 @@ car_data = pd.read_csv('vehicles_us.csv')
 # In[17]:
 
 
-display(car_data.head(10))
+# display(car_data.head(10))
 
 
 # Removing all of the columns that I will not be utilizing for visualization in the web app
@@ -35,8 +35,8 @@ comp_df = car_data.drop(['cylinders', 'fuel', 'transmission', 'paint_color', 'is
 # In[19]:
 
 
-display(comp_df)
-display(comp_df.info())
+# display(comp_df)
+# display(comp_df.info())
 
 
 # Checking the model year column
@@ -44,7 +44,7 @@ display(comp_df.info())
 # In[20]:
 
 
-display(comp_df['model_year'].value_counts(dropna=False))
+# display(comp_df['model_year'].value_counts(dropna=False))
 
 
 # Checking the Odometer column
@@ -52,7 +52,7 @@ display(comp_df['model_year'].value_counts(dropna=False))
 # In[21]:
 
 
-display(comp_df['odometer'].value_counts(dropna=False))
+# display(comp_df['odometer'].value_counts(dropna=False))
 
 
 # It looks like there is no reason for why there are null values of car year or milage other than it wasn't present to be used. With the size of the data losing these (maximum of) 11,511 entries will still leave us with over 40,000 entries. For the purposes of our visualization, I find dropping this portion of the data this to be acceptable.
@@ -61,7 +61,7 @@ display(comp_df['odometer'].value_counts(dropna=False))
 
 
 comp_df = comp_df.dropna()
-display(comp_df.info())
+# display(comp_df.info())
 
 
 # Now that we have our data cleaned of null values, I will explore the column values more and also extract useful informaiton from the columns that exist.
@@ -69,11 +69,11 @@ display(comp_df.info())
 # In[23]:
 
 
-display(comp_df['model_year'].value_counts())
-display(comp_df['model'].value_counts())
-display(comp_df['condition'].value_counts())
-display(comp_df['odometer'].value_counts())
-display(comp_df['type'].value_counts())
+# display(comp_df['model_year'].value_counts())
+# display(comp_df['model'].value_counts())
+# display(comp_df['condition'].value_counts())
+# display(comp_df['odometer'].value_counts())
+# display(comp_df['type'].value_counts())
 
 
 # In the above, I notice multiple things. First there is no reason the model year should be a float value. I will chage it to an into. The model is not going to be important in my web app. So I will just extract the make from the model's name to make a new column. The condition column looks good to me--as does the odometer and type.
@@ -89,7 +89,7 @@ comp_df = comp_df.drop('model', axis=1)
 # In[29]:
 
 
-display(comp_df)
+# display(comp_df)
 
 
 # Here we have all the columns I will want to have access to in my web app visualization. I have also removed all other columns to help reserve memory and improve speeds.
